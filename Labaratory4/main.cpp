@@ -25,14 +25,14 @@ CountAnsSum LnPlusOne(double X, double eps) {
 }
 
 int main() {
-	double X;
-	cin >> X;//ввод числа
-	double eps;
-	cin >> eps;//ввод eps
-	CountAnsSum ans1 = LnPlusOne(X,eps); //вызов написанной функции
-	double ans2 = log(X + 1);//вызов функции из math.h
-	double nevyska= sqrt(ans1.SumRow*ans1.SumRow - ans2*ans2); //невязка или nevyska
-	cout <<"Ans My Ln "<<ans1.SumRow<<" Ans math Ln "<<ans2 <<" Nevyska "<<(float)nevyska << " Count of Row " 
-		<< ans1.CountInRow << endl; //вывод всех результатов, нужных для лабы
+	double X_start, X_end, delta_X,eps;
+	cin >> X_start>>X_end>>delta_X>>eps;//ввод чисeл
+	for (double i = X_start; i <= X_end; i += delta_X) {
+		CountAnsSum ans1 = LnPlusOne(i, eps); //вызов написанной функции
+		double ans2 = log(i + 1);//вызов функции из math.h
+		double nevyska = sqrt(ans1.SumRow * ans1.SumRow - ans2 * ans2); //невязка или nevyska
+		cout << "Ans My Ln " << ans1.SumRow << " Ans math Ln " << ans2 << " Nevyska " << (float)nevyska << " Count of Row "
+			<< ans1.CountInRow << endl; //вывод всех результатов, нужных для лабы
+	}
 	return 0;
 }//если препод придерётся к типу double, можешь поменять на float
