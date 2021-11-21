@@ -30,8 +30,8 @@ int main() {
 	for (double i = X_start; i <= X_end; i += delta_X) {
 		CountAnsSum ans1 = LnPlusOne(i, eps); //вызов написанной функции
 		double ans2 = log(i + 1);//вызов функции из math.h
-		double nevyska = sqrt(ans1.SumRow * ans1.SumRow - ans2 * ans2); //невязка или nevyska
-		cout << "Ans My Ln " << ans1.SumRow << " Ans math Ln " << ans2 << " Nevyska " << (float)nevyska << " Count of Row "
+		double nevyska = sqrt(abs(ans1.SumRow * ans1.SumRow - ans2 * ans2)); //невязка или nevyska
+		cout << "Ans My Ln " << ans1.SumRow << " Ans math Ln " << ans2 << " Nevyska " << nevyska << " Count of Row "
 			<< ans1.CountInRow << endl; //вывод всех результатов, нужных для лабы
 	}
 	return 0;
