@@ -34,5 +34,16 @@ int main() {
 		cout << "Ans My Ln " << ans1.SumRow << " Ans math Ln " << ans2 << " Nevyska " << nevyska << " Count of Row "
 			<< ans1.CountInRow << endl; //вывод всех результатов, нужных для лабы
 	}
+	cout << endl;
+	double X;
+	cin >> X;
+	for (double eps = 0.1; eps >= 0.0000001; eps /= 10) {
+		CountAnsSum ans1 = LnPlusOne(X, eps); //вызов написанной функции
+		double ans2 = log(X + 1);//вызов функции из math.h
+		double nevyska = sqrt(abs(ans1.SumRow * ans1.SumRow - ans2 * ans2)); //невязка или nevyska
+		cout << "Ans My Ln " << ans1.SumRow << " Ans math Ln " << ans2 << " Nevyska " << nevyska << " Count of Row "
+			<< ans1.CountInRow << endl; //вывод всех результатов, нужных для лабы
+	}
+
 	return 0;
 }//если препод придерётся к типу double, можешь поменять на float
